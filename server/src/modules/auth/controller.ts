@@ -10,3 +10,12 @@ export const register = catchAsync(async (req, res) => {
     data: user,
   });
 });
+
+export const login = catchAsync(async (req, res) => {
+  const { accessToken } = await services.login(req.body);
+
+  return sendSuccessResponse(res, {
+    message: 'Successfully logged in',
+    data: { accessToken },
+  });
+});

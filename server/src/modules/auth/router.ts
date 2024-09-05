@@ -11,3 +11,9 @@ authRouter.post(
   validationHandler(validation.registerValidationSchema),
   controller.register,
 );
+
+authRouter.post(
+  '/login',
+  validationHandler(validation.loginValidationSchema),
+  controller.login,
+);
