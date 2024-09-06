@@ -1,10 +1,13 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { AppRouter } from './AppRouter';
+import { GlobalContextProvider } from './context';
 import './index.css';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <AppRouter />
+    <GlobalContextProvider>
+      <AppRouter />
+    </GlobalContextProvider>
   </StrictMode>,
 );

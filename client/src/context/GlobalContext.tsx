@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { IProduct, IUser } from '@/types';
+import { getUserFromLocal } from '@/helpers';
 
 // types and interfaces
 interface IGlobalState {
@@ -28,7 +29,7 @@ const reducer = (state: IGlobalState, action: TAction) => {
 
 // initial states
 const initialState: IGlobalState = {
-  user: null,
+  user: getUserFromLocal(),
   apiProducts: [],
   products: [],
 };
