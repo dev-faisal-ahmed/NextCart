@@ -1,7 +1,8 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { MainLayout } from './layout/MainLayout';
 import { lazy, Suspense } from 'react';
-import { Loader } from './components/shared/Loader';
+import { MainLayout } from '@/layout/MainLayout';
+import { Loader } from '@/components/shared/Loader';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import NotFoundPage from './pages/not-found';
 
 const HomePage = lazy(() => import('@/pages/home'));
 const RegisterPage = lazy(() => import('@/pages/register'));
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
     ],
   },
   { path: '/register', element: <RegisterPage /> },
+  {
+    path: '*',
+    element: <NotFoundPage />,
+  },
 ]);
 
 export const AppRouter = () => {
